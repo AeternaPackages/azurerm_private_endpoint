@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.private_endpoints : {
       for k2, v2 in coalesce(v1.private_endpoint_application_security_group_associations, {}) :
       "${k1}/${k2}" => merge(v2, {
-        private_endpoint_id = module.private_endpoints.private_endpoints["${k1}"].id
+        private_endpoint_id = module.private_endpoints.private_endpoints_id["${k1}"]
       })
     }
   ]...)

@@ -1,71 +1,73 @@
 # --- azurerm_private_endpoint ---
-output "private_endpoints" {
-  description = "All private_endpoint resources"
-  value       = module.private_endpoints.private_endpoints
-}
 output "private_endpoints_custom_dns_configs" {
-  description = "List of custom_dns_configs values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.custom_dns_configs]
-}
-output "private_endpoints_custom_network_interface_name" {
-  description = "List of custom_network_interface_name values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.custom_network_interface_name]
-}
-output "private_endpoints_ip_configuration" {
-  description = "List of ip_configuration values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.ip_configuration]
-}
-output "private_endpoints_location" {
-  description = "List of location values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.location]
-}
-output "private_endpoints_name" {
-  description = "List of name values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.name]
-}
-output "private_endpoints_network_interface" {
-  description = "List of network_interface values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.network_interface]
-}
-output "private_endpoints_private_dns_zone_configs" {
-  description = "List of private_dns_zone_configs values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.private_dns_zone_configs]
-}
-output "private_endpoints_private_dns_zone_group" {
-  description = "List of private_dns_zone_group values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.private_dns_zone_group]
-}
-output "private_endpoints_private_service_connection" {
-  description = "List of private_service_connection values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.private_service_connection]
-}
-output "private_endpoints_resource_group_name" {
-  description = "List of resource_group_name values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.resource_group_name]
-}
-output "private_endpoints_subnet_id" {
-  description = "List of subnet_id values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.subnet_id]
-}
-output "private_endpoints_tags" {
-  description = "List of tags values across all private_endpoints"
-  value       = [for k, v in module.private_endpoints.private_endpoints : v.tags]
+  description = "Map of custom_dns_configs values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_custom_dns_configs
 }
 
+output "private_endpoints_custom_network_interface_name" {
+  description = "Map of custom_network_interface_name values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_custom_network_interface_name
+}
+
+output "private_endpoints_ip_configuration" {
+  description = "Map of ip_configuration values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_ip_configuration
+}
+
+output "private_endpoints_location" {
+  description = "Map of location values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_location
+}
+
+output "private_endpoints_name" {
+  description = "Map of name values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_name
+}
+
+output "private_endpoints_network_interface" {
+  description = "Map of network_interface values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_network_interface
+}
+
+output "private_endpoints_private_dns_zone_configs" {
+  description = "Map of private_dns_zone_configs values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_private_dns_zone_configs
+}
+
+output "private_endpoints_private_dns_zone_group" {
+  description = "Map of private_dns_zone_group values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_private_dns_zone_group
+}
+
+output "private_endpoints_private_service_connection" {
+  description = "Map of private_service_connection values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_private_service_connection
+}
+
+output "private_endpoints_resource_group_name" {
+  description = "Map of resource_group_name values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_resource_group_name
+}
+
+output "private_endpoints_subnet_id" {
+  description = "Map of subnet_id values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_subnet_id
+}
+
+output "private_endpoints_tags" {
+  description = "Map of tags values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_tags
+}
 
 # --- azurerm_private_endpoint_application_security_group_association ---
-output "private_endpoint_application_security_group_associations" {
-  description = "All private_endpoint_application_security_group_association resources"
-  value       = module.private_endpoint_application_security_group_associations.private_endpoint_application_security_group_associations
-}
 output "private_endpoint_application_security_group_associations_application_security_group_id" {
-  description = "List of application_security_group_id values across all private_endpoint_application_security_group_associations"
-  value       = [for k, v in module.private_endpoint_application_security_group_associations.private_endpoint_application_security_group_associations : v.application_security_group_id]
-}
-output "private_endpoint_application_security_group_associations_private_endpoint_id" {
-  description = "List of private_endpoint_id values across all private_endpoint_application_security_group_associations"
-  value       = [for k, v in module.private_endpoint_application_security_group_associations.private_endpoint_application_security_group_associations : v.private_endpoint_id]
+  description = "Map of application_security_group_id values across all private_endpoint_application_security_group_associations, keyed the same as var.private_endpoint_application_security_group_associations"
+  value       = module.private_endpoint_application_security_group_associations.private_endpoint_application_security_group_associations_application_security_group_id
 }
 
+output "private_endpoint_application_security_group_associations_private_endpoint_id" {
+  description = "Map of private_endpoint_id values across all private_endpoint_application_security_group_associations, keyed the same as var.private_endpoint_application_security_group_associations"
+  value       = module.private_endpoint_application_security_group_associations.private_endpoint_application_security_group_associations_private_endpoint_id
+}
 
 
