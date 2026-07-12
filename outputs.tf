@@ -1,4 +1,9 @@
 # --- azurerm_private_endpoint ---
+output "private_endpoints_id" {
+  description = "Map of id values across all private_endpoints, keyed the same as var.private_endpoints"
+  value       = module.private_endpoints.private_endpoints_id
+}
+
 output "private_endpoints_custom_dns_configs" {
   description = "Map of custom_dns_configs values across all private_endpoints, keyed the same as var.private_endpoints"
   value       = module.private_endpoints.private_endpoints_custom_dns_configs
@@ -60,6 +65,11 @@ output "private_endpoints_tags" {
 }
 
 # --- azurerm_private_endpoint_application_security_group_association ---
+output "private_endpoint_application_security_group_associations_id" {
+  description = "Map of id values across all private_endpoint_application_security_group_associations, keyed the same as var.private_endpoint_application_security_group_associations"
+  value       = module.private_endpoint_application_security_group_associations.private_endpoint_application_security_group_associations_id
+}
+
 output "private_endpoint_application_security_group_associations_application_security_group_id" {
   description = "Map of application_security_group_id values across all private_endpoint_application_security_group_associations, keyed the same as var.private_endpoint_application_security_group_associations"
   value       = module.private_endpoint_application_security_group_associations.private_endpoint_application_security_group_associations_application_security_group_id
