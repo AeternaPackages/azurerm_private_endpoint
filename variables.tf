@@ -32,12 +32,12 @@ EOT
       request_message                   = optional(string)
       subresource_names                 = optional(list(string))
     })
-    ip_configuration = optional(object({
+    ip_configuration = optional(list(object({
       member_name        = optional(string)
       name               = string
       private_ip_address = string
       subresource_name   = optional(string)
-    }))
+    })))
     private_dns_zone_group = optional(object({
       name                 = string
       private_dns_zone_ids = list(string)
